@@ -90,16 +90,33 @@
 
 .pageFooter {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     background: #F2F2F2;
     padding: 20px 0px;
 }
 
+.footerCountryInfo {
+    display: flex;
+    width: 100%;
+    padding: 10px 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footerCountryInfo {
+    display: flex;
+    width: 100%;
+    padding: 10px 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .footerLinkArea {
     display: flex;
-    width: 100vw;
-    padding: 20px 30px;
+    width: 100%;
+    padding: 10px 30px;
     justify-content: space-between;
     align-items: center;
 }
