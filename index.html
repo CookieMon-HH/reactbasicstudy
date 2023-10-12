@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Google</title>
+    </head>
+    <style>
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        #header-left{
+            float: left;
+        }
+        
+        #header-right{
+            float: right;
+        }
+        body{
+            text-align: center;
+        }
+        #content{
+            margin: 0 auto;
+        }
+        
+        #location{
+            float: left;
+            text-align: left;
+            padding: 10px 20px;
+            width:100%;
+            border-top: 1px solid #dadce0;
+            background-color: #f2f2f2;
+        }
+        footer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-top: 1px solid #dadce0;
+            background-color: #f2f2f2;
+        }
+        #footer-left{
+            float: left;
+        }
+        #footer-right{
+            float: left;
+        }
+    </style>
+    <body>
+        <header>
+            <div id="header-left">
+                <a href="#">Google 정보</a>
+                <a href="#">스토어</a>
+            </div>
+            <div id="header-right">
+                <a href="#">Gmail</a>
+                <a href="#">이미지</a>
+                <button>
+                    <span>로그인</span>
+                </button>
+            </div>
+        </header>
+        <div id="content">
+            <div>
+                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google">
+                <form action="search.php" method="GET">
+                    <input type="text" name="q" placeholder="검색">
+                    <input type="submit" value="Google 검색">
+                    <input type="submit" value="I'm Feeling Lucky">
+                </form>
+            </div>
+        </div>
+        <div id="location">
+            <p>대한민국</p>
+        </div>
+        <footer>
+            <div id="footer-left">
+                <a href="#">광고</a>
+                <a href="#">비즈니스</a>
+                <a href="#">검색의 원리</a>
+            </div>
+            <div id="footer-right">
+                <a href="#">개인정보처리방침</a>
+                <a href="#">약관</a>
+                <a href="#">설정</a>
+            </div>
+        </footer>
+    </body>
+        
+
+</html>
