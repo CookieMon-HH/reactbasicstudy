@@ -33,21 +33,22 @@ const DUMMY_TODOLIST = [
 function MainPage() {
     // isOpen은 현재 상태값을 저장 (default는 false) 
     // setIsOpen은 isOpen 상태값을 업데이트할 수 있는 함수 
-    const [isOpen, setIsOpen] = useState(false);
+    const [clickedItem, setClickedItem] = useState(false);
     const [todoList, setTodoList] = useState(DUMMY_TODOLIST); // todoList는 현재 상태값을 저장 (default는 빈 배열)
 
-    const onClickTitle = () => {
-        setIsOpen(true)
+    const onClickTitle = (id) => {
+        const clickedItem = todoList.find((item) => item.id === id);
+        if (!clickedItem) return;
+        setClickedItem(clickedItem);
     }
 
     const onCloseModal = () => {
-        setIsOpen(false)
+        setClickedItem(null)
     }
     
-    // onClick 시 setIsOpen으로 콜백해서 사용 
+    
     return (
     <>
-        <button onClick={() => setIsOpen(true)}>모달 열기</button>
         <main>
             <h1>Our React To Do List</h1>
             <div className="topNavbar">
@@ -60,7 +61,8 @@ function MainPage() {
                     return (
                         <article key={item.id} className={cx("todoItem", { complete : item.isComplete })}>
                             <div>
-                                <p className="todoTitle" onClick={ onClickTitle } >
+                              {/* <!-- onClick 시 setIsOpen으로 콜백해서 사용  --> */}
+                                <p className="todoTitle" onClick={() => onClickTitle (item.id)} >
                                     {item.title}
                                 </p>
                                 <time className="createdDate">생성날짜: {item.createAt}</time>
@@ -82,7 +84,7 @@ function MainPage() {
             </section>
             {/* 리스트가 없을 경우에는 추가해주세요 라는 텍스트 뜨게 */}
         </main>
-        <DetailModal isOpen={isOpen} onClose={onCloseModal}/>
+        <DetailModal isOpen={!!clickedItem} onClose={onCloseModal} item={clickedItem}/>
     </>
     );
 }
