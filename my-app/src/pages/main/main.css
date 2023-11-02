@@ -64,11 +64,15 @@ h1 {
     box-shadow: 6px 3px 10px 9px #dddddd; /* https://10015.io */
 }
 
+.todoItem.complete {
+    background-color: silver
+}
+
 .todoItem + .todoItem {
     margin-top: 20px;
 }
 
-.todoItem:hover {
+.todoItem:not(.complete):hover {
     bottom: 4px;
     right: 4px;
 }
