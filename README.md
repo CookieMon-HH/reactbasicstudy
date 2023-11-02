@@ -1,2 +1,0 @@
-# reactbasicstudy
-react basic study

@@ -1,0 +1,131 @@
+main {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    /* margin auto를 주기위해서는 display flex 컨테이너 안에 포함되어야함 */
+    margin: 32px auto 0;
+    font-size: 52px;
+    font-weight: 700;
+}
+
+.topNavbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* 양 옆으로 멀어지게 */
+    margin-top: 30px;
+}
+
+.addButton {
+    user-select: none;
+    outline: none;
+    border: 1px solid #c2cad4;
+    font-size: 16px;
+    cursor: pointer;
+    color: #858c97;
+    padding: 16px 24px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.addButton:hover {
+    color: #ced0da;
+    border-color: #aaafb9;
+}
+
+.todoList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    border-top: 2px solid #aaaaaa;
+    padding-top: 60px;
+}
+
+.todoItem{
+    width: 100%;
+    transition: all 0.2s ease-in-out; /* 찾아보기 */
+    display: flex;
+    bottom: 0;
+    right: 0;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 8px;
+    -moz-box-shadow: 6px 3px 10px 9px #dddddd;
+    box-shadow: 6px 3px 10px 9px #dddddd; /* https://10015.io */
+}
+
+.todoItem + .todoItem {
+    margin-top: 20px;
+}
+
+.todoItem:hover {
+    bottom: 4px;
+    right: 4px;
+}
+
+.todoTitle {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.todoItem button {
+    user-select: none;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 12px ;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+
+.todoItem button + button {
+    margin-left: 8px;
+}
+
+.completeButton {
+    color: #2d9c16;
+    border: 1px solid #2d9c16;
+}
+
+.completeButton:hover {
+    color: #45b53e;
+    border: 1px solid #45b53e;
+}
+
+.deleteButton {
+    color: #f42d16;
+    border: 1px solid #f42d16;
+}
+
+.deleteButton:hover {
+    color: #f65745;
+    border: 1px solid #f65745;
+}
+
+.editButton {
+    color: #808080;
+    border: 1px solid #808080;
+}
+
+.editButton:hover {
+    color: #aaaaaa;
+    border: 1px solid #aaaaaa;
+}
+
+.createdDate {
+    font-size: 12px;
+    font-weight: 400px;
+    color: grey;
+}
