@@ -135,3 +135,9 @@ h1 {
     font-weight: 400px;
     color: gray;
 }
+
+.emptyText {
+    font-size: 32px;
+    font-weight: 400px;
+    color: gray;
+}

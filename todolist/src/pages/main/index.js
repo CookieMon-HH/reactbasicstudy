@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./main.css";
 import {DetailModal} from "components";
-import { CommonModal } from "components";
+// import { CommonModal } from "components";
 import dayjs from "dayjs";
 import cx from "classnames";
 
@@ -25,20 +25,22 @@ const DUMMY_TODOLIST = [
 ];
 
 function Mainpage(){
-    const [isOpen, setIsOpen] = useState(false);
+    const [clickedItem, setClickedItem] = useState(null);
     const [todoList, setTodoList] = useState(DUMMY_TODOLIST);
 
-    const onClickTitle = () => {
-        setIsOpen(true);
+    const onClickTitle = (id) => {
+        const clickedItem = todoList.find((item) => item.id === id)
+        if(!clickedItem) return;
+        setClickedItem(clickedItem);
     }
 
     const onCloseModal = () => {
-        setIsOpen(false);
+        setClickedItem(null);
     }
 
     return (
     <>
-    <button onClick={() => setIsOpen(true)}>모달 열기</button>
+    {/* <button onClick={() => setIsOpen(true)}>모달 열기</button> */}
     <main>
         <h1>Our React To Do List</h1>
         <div className="topNavbar">
@@ -53,7 +55,7 @@ function Mainpage(){
                     <article key={item.id} className={cx("todoItem",{complete: item.isComplete})}>
                         {/* classnames 라이브러리를 써서 조건에 따라 class이름을 다르게 해줌 */}
                         <div>
-                            <p className="todoTitle" onClick={onClickTitle}>
+                            <p className="todoTitle" onClick={() => onClickTitle(item.id)}>
                                 {item.title}
                             </p>
                             <time className="createDate">
@@ -70,11 +72,14 @@ function Mainpage(){
                     </article>
                 );
             })}
+            {todoList.length === 0 && 
+            (<span className="emptyText">추가해주세요.</span>)}
 
         </section>
 
     </main>
-    <CommonModal isOpen={isOpen} onClose={onCloseModal}/>
+    <DetailModal isOpen={!!clickedItem} onClose={onCloseModal} item={clickedItem}/>
+    {/* !!쓰면  object를 boolean으로 쓸 수 있다 */}
     </>
     );
 }
