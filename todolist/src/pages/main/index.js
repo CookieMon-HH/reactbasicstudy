@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./main.css";
-import {DetailModal} from "components";
+import {DetailModal, CreateModal} from "components";
 // import { CommonModal } from "components";
 import dayjs from "dayjs";
 import cx from "classnames";
@@ -26,6 +26,7 @@ const DUMMY_TODOLIST = [
 
 function Mainpage(){
     const [clickedItem, setClickedItem] = useState(null);
+    const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
     const [todoList, setTodoList] = useState(DUMMY_TODOLIST);
 
     const onClickTitle = (id) => {
@@ -34,8 +35,14 @@ function Mainpage(){
         setClickedItem(clickedItem);
     }
 
-    const onCloseModal = () => {
+    const onCloseModal = (key) => {
+        if(key === "detail") setClickedItem(null);
+        if(key === "create") setIsOpenCreateModal(false);
         setClickedItem(null);
+    }
+
+    const onClickAdd = () => {
+        setIsOpenCreateModal(true);
     }
 
     return (
@@ -45,7 +52,10 @@ function Mainpage(){
         <h1>Our React To Do List</h1>
         <div className="topNavbar">
             <time>TODAY {dayjs().format("YYYY.MM.DD")}</time>
-            <button type="button" className="addButton">추가</button>
+            <button 
+                type="button" 
+                className="addButton"
+                onClick={onClickAdd}>추가</button>
         </div>
         {/* {리스트가 없을 경우에는 추가해주세요 라는 텍스트 뜨기} */}
         <section className="todoList">
@@ -78,8 +88,15 @@ function Mainpage(){
         </section>
 
     </main>
-    <DetailModal isOpen={!!clickedItem} onClose={onCloseModal} item={clickedItem}/>
+    <DetailModal 
+        isOpen={!!clickedItem} 
+        onClose={() => onCloseModal("detail")} 
+        item={clickedItem}/>
     {/* !!쓰면  object를 boolean으로 쓸 수 있다 */}
+    <CreateModal 
+        isOpen={isOpenCreateModal}
+        onClose={() => onCloseModal("create")}
+        />
     </>
     );
 }

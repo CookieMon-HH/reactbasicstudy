@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mainpage } from 'pages';
+import { Mainpage } from './pages';
 
 
 function App() {
