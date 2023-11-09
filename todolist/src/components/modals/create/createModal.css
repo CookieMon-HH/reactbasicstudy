@@ -27,6 +27,16 @@ aside{
     flex-direction: column;
 }
 
+.createModalWrapper .colseButton {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 20px;
+    right: 20px;
+    background-color: gray;
+    cursor: pointer;
+}
+
 .modalTitle{
     font-size: 20px;
     font-weight: 500;
