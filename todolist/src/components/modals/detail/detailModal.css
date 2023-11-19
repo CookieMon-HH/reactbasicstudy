@@ -26,6 +26,10 @@ aside{
     margin-bottom: 12px;
 }
 
+.itemContent{
+    white-space: pre-wrap;
+}
+
 .closeButton{
     position: absolute;
     top: 20px;
