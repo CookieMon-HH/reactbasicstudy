@@ -26,8 +26,8 @@ function CreateModal({isOpen, onClose, setTodoList}){
         const newItem = {
             id: generateID(),
             ...value,
-            createdAt: dayjs().format("YYYY.MM.DD"),
-            updatedAt: dayjs().format("YYYY.MM.DD"),
+            createdAt: dayjs().format("YYYY.MM.DD HH:mm:ss"),
+            updatedAt: dayjs().format("YYYY.MM.DD HH:mm:ss"),
             isComplete: false,
         };
 
