@@ -1,5 +1,6 @@
 let id = 0;
 
 export const generateID = () => {
-    return id++;
+  id += 1;
+  return id;
 };
